@@ -560,16 +560,74 @@ footer {
     font-weight: 600;
 }
 
-/* Mobile Responsiveness */
+/* --- Mobile Responsiveness (FIXED FOR FULL WIDTH) --- */
 @media (max-width: 768px) {
-    .leadership-grid {
+
+    /* 1. ASPECT RATIO FIX */
+    /* Instead of a fixed height, we lock the shape to 4:3 (Standard Photo) */
+    .hero-slider-container,
+    .slider-wrapper {
+        width: 100%;
+        height: auto;
+        /* Allow height to adjust automatically */
+        aspect-ratio: 4/3;
+        /* Keeps it rectangular so image fits */
+    }
+
+    /* 2. FORCE IMAGE TO FIT */
+    .slide img {
+        /* 'contain' ensures the WHOLE image width is seen, never cropped. */
+        /* If your images are different sizes, this might leave small black bars, which is normal. */
+        object-fit: cover;
+    }
+
+    /* 3. Adjust Text for the smaller/tighter box */
+    .slide-content {
+        width: 90%;
+    }
+
+    .slide-content h1 {
+        font-size: 1.4rem;
+        /* Smaller Heading */
+        margin-bottom: 5px;
+    }
+
+    .slide-content p {
+        font-size: 0.85rem;
+        /* Smaller Paragraph */
+        line-height: 1.3;
+    }
+
+    /* 4. Make Buttons Smaller and move to edges */
+    .slider-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        border-width: 1px;
+    }
+
+    .prev-btn {
+        left: 5px;
+    }
+
+    .next-btn {
+        right: 5px;
+    }
+
+    /* 5. Layout Adjustments for other sections */
+    .leadership-grid,
+    .programs-grid {
         grid-template-columns: 1fr;
-        /* Stack cards */
-        gap: 80px;
-        /* More gap needed because images stick out */
+        /* Stack cards vertically */
     }
 
     .leadership-section {
-        padding-top: 80px;
+        padding-top: 60px;
+    }
+
+    /* Hide desktop nav */
+    .nav-links,
+    .top-bar {
+        display: none;
     }
 }
