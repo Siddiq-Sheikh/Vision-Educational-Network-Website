@@ -284,86 +284,151 @@ ul {
     color: white;
 }
 
-/* --- 5. Leadership & Academic Sections --- */
+/* --- 6. LEADERSHIP SECTION (SPECIAL PARALLELOGRAM) --- */
 .leadership-section {
-    padding: 100px 0 80px 0;
+    padding: 80px 0;
     background-color: #fff;
+    overflow: hidden;
+    /* Safety to prevent horizontal scroll from shadows */
 }
 
-.leadership-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 60px;
+.leadership-special-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    /* Space between the two big cards */
     margin-top: 40px;
 }
 
-.leader-card {
-    background: var(--bg-light);
-    border-radius: 15px;
-    padding: 60px 30px 40px 30px;
+.leadership-card-special {
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
     position: relative;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border-top: 5px solid var(--primary-color);
-    transition: transform 0.3s ease;
 }
 
-.leader-card:hover {
-    transform: translateY(-5px);
-}
-
-.leader-img {
-    position: absolute;
-    top: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 100px;
+/* --- THE IMAGE CIRCLE --- */
+.leader-image-container {
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
     overflow: hidden;
-    border: 5px solid white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 6px solid var(--primary-color);
+    position: relative;
+    z-index: 2;
+    /* Sits ON TOP of the text box */
+    flex-shrink: 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-.leader-img img {
+.leader-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.quote-icon {
-    font-size: 4rem;
-    color: rgba(0, 32, 96, 0.1);
-    line-height: 1;
-    margin-bottom: -20px;
-    font-family: serif;
-}
-
-.message {
-    font-family: var(--font-heading);
-    font-style: italic;
-    color: var(--secondary-color);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.leader-card h3 {
-    color: var(--primary-color);
-    font-size: 1.3rem;
-    margin-bottom: 5px;
-    font-weight: 700;
-}
-
-.designation {
-    display: inline-block;
-    background-color: var(--highlight-color);
+/* --- THE TEXT PARALLELOGRAM --- */
+.leader-quote-container {
+    background-color: var(--primary-color);
     color: white;
-    padding: 4px 12px;
-    border-radius: 20px;
+    /* Extra padding on Left to account for overlap */
+    padding: 40px 60px 40px 100px;
+
+    /* Pull box LEFT to overlap behind the circle */
+    margin-left: -80px;
+
+    flex-grow: 1;
+    min-height: 180px;
+    /* Minimum height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    /* SHAPE: Slanted on the right side */
+    clip-path: polygon(0% 0%, 95% 0%, 100% 100%, 0% 100%);
+
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.2));
+}
+
+/* --- REVERSE LAYOUT (FOR PRINCIPAL) --- */
+.reverse-layout {
+    flex-direction: row-reverse;
+    /* Flips image to the Right */
+}
+
+/* Specific styling for the reversed text box */
+.reverse-layout .leader-quote-container {
+    /* Pull box RIGHT to overlap behind the circle */
+    margin-left: 0;
+    margin-right: -80px;
+
+    /* Flip padding: Extra padding on Right now */
+    padding: 40px 100px 40px 60px;
+
+    /* SHAPE: Slanted on the LEFT side now */
+    clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 0% 100%);
+
+    /* Align text to the right for symmetry? Optional. 
+       Remove this line if you want standard left-align text. */
+    text-align: right;
+
+    background-color: var(--secondary-color);
+    /* Grey Background for Principal */
+}
+
+/* Fix the cite alignment in reverse mode */
+.reverse-layout cite {
+    align-items: flex-start;
+    /* Align name to left (or right if you prefer) */
+}
+
+/* If text-align is right, align name to right too */
+.reverse-layout .leader-quote-container {
+    text-align: right;
+}
+
+.reverse-layout cite {
+    align-items: flex-end;
+}
+
+
+/* --- TYPOGRAPHY --- */
+.quote-icon {
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.2);
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.leader-quote-container blockquote {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.leader-quote-container cite {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* Default: Align name to right */
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.designation-badge {
     font-size: 0.8rem;
     text-transform: uppercase;
-    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 5px;
+    letter-spacing: 1px;
 }
 
 .academics-section {
@@ -586,13 +651,51 @@ footer {
     }
 
     /* 7. LAYOUT STACKING */
-    .leadership-grid,
-    .programs-grid {
-        grid-template-columns: 1fr;
+    /* --- Mobile Leadership Fixes --- */
+    .leadership-special-grid {
+        gap: 60px;
     }
 
-    .leadership-section {
-        padding-top: 50px;
+    /* DISABLE Row Layouts on Mobile */
+    .leadership-card-special,
+    .reverse-layout {
+        flex-direction: column !important;
+        /* Force vertical stack */
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Reset Margins & Shapes */
+    .leader-quote-container,
+    .reverse-layout .leader-quote-container {
+        margin-left: 0;
+        margin-right: 0;
+        clip-path: none;
+        /* Remove slanted edges on mobile */
+        border-radius: 15px;
+        width: 100%;
+        padding: 60px 30px 30px 30px;
+        /* Padding top for image overlap */
+        text-align: center;
+        /* Center text on mobile */
+    }
+
+    /* Fix Image Position */
+    .leader-image-container {
+        width: 150px;
+        height: 150px;
+        margin-bottom: -50px;
+        /* Pull image down onto card */
+    }
+
+    .reverse-layout cite {
+        align-items: center;
+    }
+
+    /* Center name on mobile */
+
+    .programs-grid {
+        grid-template-columns: 1fr;
     }
 
     .action-container {
