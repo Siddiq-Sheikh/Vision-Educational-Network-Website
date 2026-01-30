@@ -67,15 +67,33 @@ ul {
     align-items: center;
 }
 
-.logo h1 {
-    font-family: var(--font-heading);
-    color: var(--primary-color);
-    font-size: 1.8rem;
+/* --- Updated Logo Styling (PC Default) --- */
+.logo {
+    display: flex;
+    align-items: center;
+    /* Aligns text vertically with image */
+    gap: 15px;
+    /* Space between logo and text */
+    text-decoration: none;
 }
 
-.logo span {
-    color: var(--secondary-color);
-    font-weight: 300;
+.logo img {
+    height: 60px;
+    /* Adjust this height based on your logo file */
+    width: auto;
+    /* Maintains aspect ratio */
+    object-fit: contain;
+}
+
+.desktop-text {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    /* Large readable text */
+    font-weight: 700;
+    white-space: nowrap;
+    /* Prevents it from breaking into two lines */
+    letter-spacing: 0.5px;
 }
 
 .nav-links {
@@ -230,7 +248,7 @@ ul {
     right: 30px;
 }
 
-/* Mobile Adjustments */
+/* Mobile Adjustments
 @media (max-width: 768px) {
     .slide-content h1 {
         font-size: 2rem;
@@ -245,7 +263,7 @@ ul {
         height: 45px;
         font-size: 1.4rem;
     }
-}
+} */
 
 /* --- 4. Action Bar --- */
 .action-bar {
@@ -297,8 +315,7 @@ footer {
     margin-top: 50px;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
+/* Mobile @media (max-width: 768px) {
     .nav-links {
         display: none;
     }
@@ -308,7 +325,7 @@ footer {
     }
 
     /* Make buttons smaller on mobile */
-    .slider-btn {
+/* .slider-btn {
         width: 45px;
         height: 45px;
         font-size: 1.4rem;
@@ -329,7 +346,7 @@ footer {
     .action-btn {
         justify-content: center;
     }
-}
+} */
 
 /* --- 5. Academic Divisions Section --- */
 .academics-section {
@@ -629,5 +646,63 @@ footer {
     .nav-links,
     .top-bar {
         display: none;
+    }
+
+    /* --- Updated Logo Styling (PC Default) --- */
+    .logo {
+        display: flex;
+        align-items: center;
+        /* Aligns text vertically with image */
+        gap: 15px;
+        /* Space between logo and text */
+        text-decoration: none;
+    }
+
+    .logo img {
+        height: 60px;
+        /* Adjust this height based on your logo file */
+        width: auto;
+        /* Maintains aspect ratio */
+        object-fit: contain;
+    }
+
+    .desktop-text {
+        font-family: var(--font-heading);
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        /* Large readable text */
+        font-weight: 700;
+        white-space: nowrap;
+        /* Prevents it from breaking into two lines */
+        letter-spacing: 0.5px;
+    }
+
+    /* --- Updated Logo Styling (PC Default) --- */
+    .logo {
+        display: flex;
+        align-items: center;
+        /* Aligns text vertically with image */
+        gap: 15px;
+        /* Space between logo and text */
+        text-decoration: none;
+    }
+
+    .logo img {
+        height: 60px;
+        /* Adjust this height based on your logo file */
+        width: auto;
+        /* Maintains aspect ratio */
+        object-fit: contain;
+    }
+
+    .desktop-text {
+        font-family: var(--font-heading);
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        /* Large readable text */
+        font-weight: 700;
+        white-space: nowrap;
+        /* Prevents it from breaking into two lines */
+        letter-spacing: 0.5px;
     }
 }
