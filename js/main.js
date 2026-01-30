@@ -63,3 +63,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // 7. Initialize Auto-Slide on Page Load
     startAutoSlide();
 });
+
+/* --- Existing Slider Code is above here --- */
+
+// MOBILE MENU TOGGLE
+const hamburger = document.getElementById('hamburgerBtn');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+    // Toggle the .nav-active class to slide menu in/out
+    navLinks.classList.toggle('nav-active');
+
+    // Optional: Turn hamburger into X
+    hamburger.classList.toggle('toggle');
+});
