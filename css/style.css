@@ -648,61 +648,17 @@ footer {
         display: none;
     }
 
-    /* --- Updated Logo Styling (PC Default) --- */
-    .logo {
-        display: flex;
-        align-items: center;
-        /* Aligns text vertically with image */
-        gap: 15px;
-        /* Space between logo and text */
-        text-decoration: none;
-    }
-
-    .logo img {
-        height: 60px;
-        /* Adjust this height based on your logo file */
-        width: auto;
-        /* Maintains aspect ratio */
-        object-fit: contain;
-    }
-
     .desktop-text {
-        font-family: var(--font-heading);
-        color: var(--primary-color);
-        font-size: 1.5rem;
-        /* Large readable text */
-        font-weight: 700;
-        white-space: nowrap;
-        /* Prevents it from breaking into two lines */
-        letter-spacing: 0.5px;
+        display: none !important;
+        /* The !important tag forces it to hide */
     }
 
-    /* --- Updated Logo Styling (PC Default) --- */
-    .logo {
-        display: flex;
-        align-items: center;
-        /* Aligns text vertically with image */
-        gap: 15px;
-        /* Space between logo and text */
-        text-decoration: none;
-    }
-
+    /* Adjust logo size */
     .logo img {
-        height: 60px;
-        /* Adjust this height based on your logo file */
-        width: auto;
-        /* Maintains aspect ratio */
-        object-fit: contain;
+        height: 45px;
     }
 
-    .desktop-text {
-        font-family: var(--font-heading);
-        color: var(--primary-color);
-        font-size: 1.5rem;
-        /* Large readable text */
-        font-weight: 700;
-        white-space: nowrap;
-        /* Prevents it from breaking into two lines */
-        letter-spacing: 0.5px;
+    .logo {
+        gap: 0;
     }
 }
