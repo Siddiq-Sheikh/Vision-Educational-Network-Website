@@ -460,63 +460,79 @@ footer {
 /* ========================================= */
 /* MOBILE RESPONSIVENESS (REBUILT)     */
 /* ========================================= */
+/* ========================================= */
+/* MOBILE RESPONSIVENESS (FIXED & COMPACT)   */
+/* ========================================= */
 @media (max-width: 768px) {
 
-    /* 1. Header & Logo */
-    .top-bar {
-        display: none;
+    /* 1. SAFETY LOCK & GLOBAL SETTINGS */
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
+    /* 2. COMPACT HEADER FIXES */
+    .main-header {
+        padding: 5px 0;
+        /* Reduced padding (was 1rem) to remove gap */
+        height: auto;
+    }
+
+    .container {
+        width: 95%;
+        /* Make container wider on mobile so items go to edges */
+    }
+
+    /* 3. LOGO & TEXT ADJUSTMENTS */
     .logo img {
-        height: 45px;
+        height: 60px;
+        /* Slightly smaller logo to save vertical space */
+        width: auto;
+        object-fit: contain;
     }
-
-    /* Slightly bigger than before */
 
     .brand-text {
         display: block !important;
-        /* Ensure text is visible */
-        font-size: 1rem;
-        /* Adjust size to fit screen */
+        font-size: 0.95rem;
+        /* Smaller text to fit alongside hamburger */
+        line-height: 1.1;
         white-space: normal;
-        /* Allow wrapping if screen is tiny */
-        line-height: 1.2;
+        /* Allows text to wrap if screen is very tiny */
+        margin-left: 8px;
+        /* Tighter gap between logo and text */
+        color: var(--primary-color);
+        font-weight: 700;
     }
 
-    /* 2. Mobile Menu (Hamburger) */
+    /* 4. HAMBURGER ALIGNMENT FIX */
     .hamburger {
         display: block;
-        z-index: 1001;
-        /* Above menu overlay */
+        cursor: pointer;
+        margin-left: auto;
+        /* CRITICAL: Forces hamburger to the far right */
+        padding: 5px;
+        /* Adds touch area without increasing visual size */
     }
 
-    .nav-links {
-        position: fixed;
-        right: -100%;
-        /* Hidden off-screen */
-        top: 0;
-        height: 100vh;
-        width: 70%;
-        background-color: #ffffff;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
-        transition: right 0.4s ease-in-out;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
+    .hamburger span {
+        display: block;
+        width: 28px;
+        /* Standard hamburger width */
+        height: 3px;
+        background-color: var(--primary-color);
+        margin: 6px 0;
+        transition: 0.3s;
+        border-radius: 2px;
     }
 
-    /* Class added by JS to show menu */
-    .nav-links.nav-active {
-        right: 0;
-    }
-
-    /* 3. Slider Fix (16:9 Aspect Ratio) */
+    /* 5. SLIDER FIX (16:9 Aspect Ratio) */
+    .hero-slider-container,
     .slider-wrapper {
+        width: 100%;
         height: auto;
         aspect-ratio: 16/9;
-        /* Widescreen shape */
     }
 
     .slide-content {
@@ -529,11 +545,10 @@ footer {
     }
 
     .slide-content p {
-        font-size: 0.8rem;
         display: none;
     }
 
-    /* Hide Paragraph on mobile to save space */
+    /* Hide Paragraph on mobile */
 
     .slider-btn {
         width: 35px;
@@ -549,22 +564,54 @@ footer {
         right: 10px;
     }
 
-    /* 4. Layout Stacking */
+    /* 6. MOBILE MENU (Slide-in) */
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        width: 75%;
+        background-color: #ffffff;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: right 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .nav-links.nav-active {
+        right: 0;
+    }
+
+    /* 7. LAYOUT STACKING */
     .leadership-grid,
     .programs-grid {
         grid-template-columns: 1fr;
     }
 
     .leadership-section {
-        padding-top: 60px;
+        padding-top: 50px;
     }
 
     .action-container {
         flex-direction: column;
-        width: 85%;
+        width: 90%;
     }
 
     .action-btn {
         justify-content: center;
     }
+
+    /* Hide Desktop Elements */
+    .top-bar {
+        display: none;
+    }
+
+    .desktop-text {
+        display: none !important;
+    }
+
+    /* If you have any other old classes */
 }
