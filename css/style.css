@@ -291,7 +291,9 @@ ul {
 }
 
 .leadership-grid {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     grid-template-columns: repeat(2, 1fr);
     gap: 60px;
     margin-top: 40px;
@@ -306,6 +308,8 @@ ul {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     border-top: 5px solid var(--primary-color);
     transition: transform 0.3s ease;
+    flex: 0 1 45%;
+    min-width: 300px;
 }
 
 .leader-card:hover {
